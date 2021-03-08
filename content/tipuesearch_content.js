@@ -1,1 +1,1 @@
-var tipuesearch = {"pages": [{'title': 'About', 'text': '40823109 \n', 'tags': '', 'url': 'About.html'}]};
+var tipuesearch = {"pages": [{'title': 'About', 'text': '40823109 \n', 'tags': '', 'url': 'About.html'}, {'title': 'W1', 'text': '', 'tags': '', 'url': 'W1.html'}, {'title': 'leo無法啟動', 'text': '(1) 輸入 leo 指令跳出無限迴圈 \n \n (2) 解決方法 : \n 在 home 目錄下建立一個 .leo 資料夾 ，並建立一個 .leoID 文件檔後， 重新啟動即可成功。 \n \n \n', 'tags': '', 'url': 'leo無法啟動.html'}]};
