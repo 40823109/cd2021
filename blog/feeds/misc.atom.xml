@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>40823109 cd2021 - Misc</title><link href="https://40823109.github.io/cd2021/blog/" rel="alternate"></link><link href="https://40823109.github.io/cd2021/blog/feeds/misc.atom.xml" rel="self"></link><id>https://40823109.github.io/cd2021/blog/</id><updated>2021-03-17T23:42:28+08:00</updated><entry><title>2021</title><link href="https://40823109.github.io/cd2021/blog/cd2021.html" rel="alternate"></link><published>2021-03-10T00:00:00+08:00</published><updated>2021-03-17T23:42:28+08:00</updated><author><name>40823109</name></author><id>tag:40823109.github.io,2021-03-10:/cd2021/blog/cd2021.html</id><content type="html">&lt;h2&gt;W2&lt;/h2&gt;
-&lt;p&gt;討論製作主題與製作草圖及繪製3D圖檔
+<feed xmlns="http://www.w3.org/2005/Atom"><title>40823109 cd2021 - Misc</title><link href="https://40823109.github.io/cd2021/blog/" rel="alternate"></link><link href="https://40823109.github.io/cd2021/blog/feeds/misc.atom.xml" rel="self"></link><id>https://40823109.github.io/cd2021/blog/</id><updated>2021-03-18T00:31:24+08:00</updated><entry><title>2021 第一階段</title><link href="https://40823109.github.io/cd2021/blog/cd2021.html" rel="alternate"></link><published>2021-03-18T00:00:00+08:00</published><updated>2021-03-18T00:31:24+08:00</updated><author><name>40823109</name></author><id>tag:40823109.github.io,2021-03-18:/cd2021/blog/cd2021.html</id><content type="html">&lt;h2&gt;W2&lt;/h2&gt;
+&lt;p&gt;討論製作主題與工作分配
 討論結果 :&lt;/p&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li&gt;決定製作 達爾文機械中的船&lt;/li&gt;
-&lt;li&gt;由40823109負責繪製草圖與3D圖檔，40823112負責程式模擬&lt;/li&gt;
+&lt;li&gt;由40823109負責繪製草圖與3D圖檔，40823112負責程式模擬。&lt;/li&gt;
+&lt;li&gt;繪製第一次的傳動系統草圖。&lt;/li&gt;
+&lt;li&gt;繪製3D零件圖。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;p&gt;遇見問題 :
 Q1. 如何使兩邊的齒輪往同一方向轉動。
 A1. 決定使用惰輪來使齒輪旋轉方向改變。&lt;/p&gt;
 &lt;hr&gt;
+&lt;p&gt;Q2. 齒輪傳動的方式，兩邊轉速會不一樣。
+A2. 更換新的傳動方式。&lt;/p&gt;
+&lt;hr&gt;
 &lt;h2&gt;W3&lt;/h2&gt;
-&lt;p&gt;1.修改齒輪尺數與外徑，使傳動能更加順暢。
-2.繪製3D爆炸圖與2D工作圖。&lt;/p&gt;
-&lt;hr&gt;</content><category term="Misc"></category><category term="cd2021"></category></entry><entry><title>2021</title><link href="https://40823109.github.io/cd2021/blog/2020-Fall-Intro-to-computer-programming.html" rel="alternate"></link><published>2020-08-13T11:00:00+08:00</published><updated>2021-03-10T22:32:20+08:00</updated><author><name>yen</name></author><id>tag:40823109.github.io,2020-08-13:/cd2021/blog/2020-Fall-Intro-to-computer-programming.html</id><summary type="html">&lt;p&gt;2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;將3D組合圖放入coppeliasim中模擬，找出傳動問題。&lt;/li&gt;
+&lt;li&gt;修改齒輪尺數與外徑，使傳動能更加順暢。&lt;/li&gt;
+&lt;li&gt;零件簡單化， 將零件不需要的部分簡化掉，減少阻力。&lt;/li&gt;
+&lt;li&gt;繪製3D爆炸圖與2D工作圖。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;遇見問題  :
+Q1. 齒輪在傳動時，因齒冠及齒深太長而導致傳動不順、卡住。
+A1. 將所有的齒輪齒冠及齒深調短， 及減少兩齒輪的中心距。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Q2. 馬達傳動軸在模擬時會產生偏心，但3D組合圖沒問題。
+A2. 另外畫一個小的圓柱，以利在 coppeliasim 中定位。&lt;/p&gt;</content><category term="Misc"></category><category term="cd2021"></category></entry><entry><title>2021</title><link href="https://40823109.github.io/cd2021/blog/2020-Fall-Intro-to-computer-programming.html" rel="alternate"></link><published>2020-08-13T11:00:00+08:00</published><updated>2021-03-10T22:32:20+08:00</updated><author><name>yen</name></author><id>tag:40823109.github.io,2020-08-13:/cd2021/blog/2020-Fall-Intro-to-computer-programming.html</id><summary type="html">&lt;p&gt;2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2020 Fall 計算機程式的教學主要介紹 Python 與 Flutter 在機械設計流程中的應用.&lt;/p&gt;
 
 
