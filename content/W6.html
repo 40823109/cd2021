@@ -133,12 +133,117 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">leo無法啟動 << <a href='leo無法啟動.html'>Previous</a> <a href='草圖繪製.html'>Next</a> >> 草圖繪製<br /><h1>W2</h1>
-<p>討論分工部分 :<br/>40823109繪製草圖與3D圖</p>
-<p>40823112製作程式模擬</p>
-<p>YT影片 :</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/w4uJefKMZYI" width="560"></iframe></p>
-<br />leo無法啟動 << <a href='leo無法啟動.html'>Previous</a> <a href='草圖繪製.html'>Next</a> >> 草圖繪製</div>
+    <div id="tipue_search_content">W5 << <a href='W5.html'>Previous</a> <br /><h1>W6</h1>
+<p>這週我們試著使機器人可以用方向鍵來控制，但程式修改後還是有錯誤。</p>
+<p>第二次Lua程式測試:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    -- do some initialization here
+    left_front_handle= sim.getObjectHandle('left_front')
+    left_back_handle= sim.getObjectHandle('left_back')
+    right_back_handle= sim.getObjectHandle('right_back')
+    right_front_handle= sim.getObjectHandle('right_front')
+    
+    joint_1_handle= sim.getObjectHandle('joint_1')
+    
+    joint_2_handle= sim.getObjectHandle('joint_2')
+    MaxVel=10
+    leftvelocity=0
+    rightvelocity=0
+    dVel=0.5;
+    --sim.setJointTargetVelocity(left_front_handle,leftvelocity)
+    sim.setJointTargetVelocity(left_back_handle,leftvelocity)
+    sim.setJointTargetVelocity(right_back_handle,rightvelocity)
+    --sim.setJointTargetVelocity(right_front_handle,rightvelocity)
+end
+
+function sysCall_actuation()
+    -- put your actuation code here
+    message,auxiliaryData=sim.getSimulatorMessage()
+    while message~=-1 do
+        if (message==sim.message_keypress) then
+            if (auxiliaryData[1]==32) then
+                -- right key
+                leftvelocity=0
+                rightvelocity=0
+                sim.setJointForce(left_front_handle, 0)
+                sim.setJointForce(left_back_handle, 0)
+                sim.setJointForce(right_back_handle, 0)
+                sim.setJointForce(right_front_handle, 0)
+                
+                
+                sim.setJointForce(joint_1_handle, 1000)
+                
+                sim.setJointForce(joint_2_handle, 1000)
+                break
+            else
+            --sim.setJointForce(left_front_handle, 10000)
+            sim.setJointForce(left_back_handle, 10000)
+            sim.setJointForce(right_back_handle, 10000)
+            --sim.setJointForce(right_front_handle, 10000)
+            
+            sim.setJointForce(joint_1_handle, 0)
+            
+            sim.setJointForce(joint_2_handle, 0)
+            end
+            if (auxiliaryData[1]==2007) then
+                -- up key
+                leftvelocity=(leftvelocity+rightvelocity)/2
+                rightvelocity=leftvelocity
+                leftvelocity=leftvelocity+dVel
+                rightvelocity=rightvelocity+dVel
+            end
+            if (auxiliaryData[1]==2008) then
+                -- down key
+                leftvelocity=(leftvelocity+rightvelocity)/2
+                rightvelocity=leftvelocity
+                leftvelocity=leftvelocity-dVel
+                rightvelocity=rightvelocity-dVel
+            end
+            if (auxiliaryData[1]==2009) then
+                -- left key
+                leftvelocity=leftvelocity-dVel
+                rightvelocity=rightvelocity+dVel
+            end
+            if (auxiliaryData[1]==2010) then
+                -- right key
+                leftvelocity=leftvelocity+dVel
+                rightvelocity=rightvelocity-dVel
+            end
+        end
+        message,auxiliaryData=sim.getSimulatorMessage()
+    end
+    
+    if leftvelocity&gt;MaxVel then
+        leftvelocity=MaxVel
+    end
+    if leftvelocity&lt;-MaxVel then
+        leftvelocity=-MaxVel
+    end
+    
+    if rightvelocity&gt;MaxVel then
+                rightvelocity=MaxVel
+    end
+    if rightvelocity&lt;-MaxVel then
+                rightvelocity=-MaxVel
+    end
+    
+    --sim.setJointTargetVelocity(left_front_handle,leftvelocity)
+    sim.setJointTargetVelocity(left_back_handle,leftvelocity)
+    sim.setJointTargetVelocity(right_back_handle,rightvelocity)
+    --sim.setJointTargetVelocity(right_front_handle,rightvelocity)
+    
+end
+
+function sysCall_sensing()
+    -- put your sensing code here
+end
+
+function sysCall_cleanup()
+    -- do some clean-up here
+end
+
+-- See the user manual or the available code snippets for additional callback functions and details</pre>
+<p>第二此更新後，還是無法順利控制，將於下周改進。</p><br />W5 << <a href='W5.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
