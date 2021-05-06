@@ -133,13 +133,95 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='W1.html'>Next</a> >> W1<br /><h1>About</h1>
-<p>40823109</p>
-<p>倉儲 : <a href="https://github.com/40823109/cd2021">cd2021倉儲</a></p>
-<p>網站 : <a href="https://40823109.github.io/cd2021/">cd2021網站</a></p>
-<p>YT   : <a href="https://www.youtube.com/channel/UCqIZ_Im0AsRmeHrgJcH8aYw">YT網站</a></p>
-<p><img alt="" height="357" src="./../images/93-marquez__gp_4338_0.big_.jpg" width="537"/></p>
-<br /> <a href='W1.html'>Next</a> >> W1</div>
+    <div id="tipue_search_content">W6 << <a href='W6.html'>Previous</a> <a href='W8.html'>Next</a> >> W8<br /><h1>W7</h1>
+<p>經過前兩週的測試，這週我們成功使機器人可以用方向鍵進行操控。</p>
+<p>模擬圖 :</p>
+<p><img alt="" height="285" src="./../images/EV3-14.gif" width="525"/></p>
+<p>第三次Lua程式 (成功)</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init() 
+    left_front_handle= sim.getObjectHandle('left_m')
+    left_back_handle= sim.getObjectHandle('left_m')
+    right_back_handle= sim.getObjectHandle('right_m')
+    right_front_handle= sim.getObjectHandle('right_m')
+    MaxVel=2
+    leftvelocity=0
+    rightvelocity=0
+    dVel=0.5;
+    --sim.setJointTargetVelocity(left_front_handle,leftvelocity)
+    sim.setJointTargetVelocity(left_back_handle,leftvelocity)
+    sim.setJointTargetVelocity(right_back_handle,rightvelocity)
+    --sim.setJointTargetVelocity(right_front_handle,rightvelocity)
+end
+
+function sysCall_actuation() 
+    message,auxiliaryData=sim.getSimulatorMessage()
+    while message~=-1 do
+        if (message==sim.message_keypress) then
+            if (auxiliaryData[1]==32) then
+                -- right key
+                leftvelocity=0
+                rightvelocity=0
+                sim.setJointForce(left_front_handle, 0)
+                sim.setJointForce(left_back_handle, 0)
+                sim.setJointForce(right_back_handle, 0)
+                sim.setJointForce(right_front_handle, 0)
+                break
+            else
+                --sim.setJointForce(left_front_handle, 10000)
+                sim.setJointForce(left_back_handle, 10000)
+                sim.setJointForce(right_back_handle, 10000)
+                --sim.setJointForce(right_front_handle, 10000)
+            end
+            if (auxiliaryData[1]==2007) then
+                -- up key
+                leftvelocity=(leftvelocity+rightvelocity)/2
+                rightvelocity=leftvelocity
+                leftvelocity=leftvelocity+dVel
+                rightvelocity=rightvelocity+dVel
+            end
+            if (auxiliaryData[1]==2008) then
+                -- down key
+                leftvelocity=(leftvelocity+rightvelocity)/2
+                rightvelocity=leftvelocity
+                leftvelocity=leftvelocity-dVel
+                rightvelocity=rightvelocity-dVel
+            end
+            if (auxiliaryData[1]==2009) then
+                -- left key
+                leftvelocity=leftvelocity-dVel
+                rightvelocity=rightvelocity+dVel
+            end
+            if (auxiliaryData[1]==2010) then
+                -- right key
+                leftvelocity=leftvelocity+dVel
+                rightvelocity=rightvelocity-dVel
+            end
+        end
+        message,auxiliaryData=sim.getSimulatorMessage()
+    end
+    
+    if leftvelocity&gt;MaxVel then
+        leftvelocity=MaxVel
+    end
+    if leftvelocity&lt;-MaxVel then
+        leftvelocity=-MaxVel
+    end
+    
+    if rightvelocity&gt;MaxVel then
+                rightvelocity=MaxVel
+    end
+    if rightvelocity&lt;-MaxVel then
+                rightvelocity=-MaxVel
+    end
+    
+    --sim.setJointTargetVelocity(left_front_handle,leftvelocity)
+    sim.setJointTargetVelocity(left_back_handle,leftvelocity)
+    sim.setJointTargetVelocity(right_back_handle,rightvelocity)
+    --sim.setJointTargetVelocity(right_front_handle,rightvelocity)
+    
+end </pre>
+<p>已成功使用方向鍵控制模型，下週將會加入視覺傳感器與力傳感器，讓模型在遇到物體時可以自動避開。</p>
+<br />W6 << <a href='W6.html'>Previous</a> <a href='W8.html'>Next</a> >> W8</div>
         
     <!-- footer -->
       <div class="container">
