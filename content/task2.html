@@ -133,13 +133,61 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Stage1.html'>Next</a> >> Stage1<br /><h1>About</h1>
-<p>40823109</p>
-<p>倉儲 : <a href="https://github.com/40823109/cd2021">cd2021倉儲</a></p>
-<p>網站 : <a href="https://40823109.github.io/cd2021/">cd2021網站</a></p>
-<p>YT   : <a href="https://www.youtube.com/channel/UCqIZ_Im0AsRmeHrgJcH8aYw">YT網站</a></p>
-<p><img alt="" height="357" src="./../images/93-marquez__gp_4338_0.big_.jpg" width="537"/></p>
-<br /> <a href='Stage1.html'>Next</a> >> Stage1</div>
+    <div id="tipue_search_content">W10 << <a href='W10.html'>Previous</a> <a href='W11.html'>Next</a> >> W11<br /><h1>task2</h1>
+<p><span>使用 Python remote API 進行操控 stage1 與 stage2 所完成的 coppeliasim 場景</span></p>
+<p><span></span>YT :</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/rLoMKk9nZe8" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p>Python remote API 程式 stage 1</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import sys
+# child threaded script: 
+#simExtRemoteApiStart(19999)
+ 
+vrep.simxFinish(-1)
+ 
+clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+ 
+if clientID!= -1:
+    print("Connected to remote server")
+else:
+    print('Connection not successful')
+    sys.exit('Could not connect')
+ 
+errorCode,boat_motor_handle=vrep.simxGetObjectHandle(clientID,'boat_motor',vrep.simx_opmode_oneshot_wait)
+ 
+if errorCode == -1:
+    print('Can not find motor')
+    sys.exit()
+ 
+errorCode=vrep.simxSetJointTargetVelocity(clientID,boat_motor_handle,0, vrep.simx_opmode_oneshot_wait)</pre>
+<p>Python remote API 程式 stage 2</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import sys
+# child threaded script: 
+#simExtRemoteApiStart(19999)
+ 
+vrep.simxFinish(-1)
+ 
+clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+ 
+if clientID!= -1:
+    print("Connected to remote server")
+else:
+    print('Connection not successful')
+    sys.exit('Could not connect')
+ 
+errorCode,left_m_handle=vrep.simxGetObjectHandle(clientID,'left_m',vrep.simx_opmode_oneshot_wait)
+ 
+errorCode,right_m_handle=vrep.simxGetObjectHandle(clientID,'right_m',vrep.simx_opmode_oneshot_wait)
+ 
+if errorCode == -1:
+    print('Can not find left or right motor')
+    sys.exit()
+ 
+errorCode=vrep.simxSetJointTargetVelocity(clientID,left_m_handle,0, vrep.simx_opmode_oneshot_wait)
+errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_opmode_oneshot_wait)
+</pre><br />W10 << <a href='W10.html'>Previous</a> <a href='W11.html'>Next</a> >> W11</div>
         
     <!-- footer -->
       <div class="container">
