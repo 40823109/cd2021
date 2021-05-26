@@ -612,7 +612,46 @@ end
 <h1>stage3</h1>
 <h2>W10</h2>
 <h3>task1</h3>
-<p>利用python程式讀取 stage3_2a.txt，建立 Stage3 的分組倉儲，分組網頁，以及各組員倉儲及網頁連結。</p>
+<p>利用python程式讀取 <a href="http://mde.tw/cd2021/downloads/stage3/stage3_2a.txt">stage3_2a.txt</a>，建立 Stage3 的分組倉儲，分組網頁，以及各組員倉儲及網頁連結。</p>
+<p>程式與註解如下 :</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># open file, default is read mode, since txt content no chinese char4
+# no encoding = "UTF-08" is needed
+with open("123.txt") as fh:
+    #匯入txt檔內容.將它命名為fh
+    data = fh.readlines()
+     #readlines()方法讀取整個檔案所有行，儲存在一個列表(list)變數中，每行作為一個元素。
+    data = [a.replace('4823122','40823122') for a in data]
+     #因為有一個學號少打了一個0，所以使用replace() ，將正確學號取代錯誤學號，並傳回data。
+    data = [c.replace('\t\t\t\t','') for c in data]
+     #有一組只有6人，因此需消除後面多的2格空格。
+    data = [b.replace('_','-') for b in data]
+     #將_更改成-以方便之後的讀取。
+     #print(data)
+     #印出data。
+#print(len(data))
+for i in range(len(data)):
+    # 使用range設定範圍，len(data)=6進行for迴圈，變數為i。
+    group = data[i].rstrip("\n").split("\t")
+    #將data列表中第i項,去除元素\n(換行)利用\t(空格)分割變成元素(逗號自動補上)
+    
+    #group（）用來提出分組截獲的字符串，()用來分組。
+    #rstrip() 删除 string 字符串末尾的指定字符。
+    #split() 通過指定分隔符對字符串進行切片，如果参数 num 有指定值，則分隔 num+1 個子字符串。
+    
+    #print(group)
+    print('&lt;p&gt;'+group[0]+' | &lt;a href="https://'+group[1]+'.github.io/stage3-ag'+group[0]+'"&gt;網站&lt;/a&gt; | &lt;a href="https://github.com/'+group[2]+'/'+group[0]+'"&gt;倉儲&lt;/a&gt;&lt;/p&gt;')
+    #group[0][9]=第0個第9位
+    #用print依序索引group list中的元素,放入html格式,依序print出來
+ 
+    for j in range(2,18,2):
+        #range(2,18,2):選取文字檔中的第2格到第18格，每跳兩格選一次
+        try:
+            print('&lt;p&gt;'+group[j]+' | Website:'+'&lt;a href="https://'+group[j]+'.github.io/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Repository:'+'&lt;a href="https://github.com/'+group[j]+'/cd2021'+'"&gt;'+group[j]+'&lt;/a&gt;'+' | Group Website:'+'&lt;a href="https://'+group[j]+'.github.io/'+group[0]+'"&gt;'+group[j]+'&lt;/a&gt;&lt;/p&gt;')
+            #用print依序索引group list中的元素,放入html格式,依序print出來
+                   #差別在於這行是取組員的但因為有一組只有6人超出範圍所以一定會error
+        except:
+            continue</pre>
+<p></p>
 <h3>task2</h3>
 <p><span>使用 Python remote API 進行操控 stage1 與 stage2 所完成的 coppeliasim 場景</span></p>
 <p><span></span>YT :</p>
@@ -672,3 +711,5 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>W11 直播影片 :</p>
 <p>介紹使用 <span>Python remote API 控制 coppeliasim 場景，與SSH 設定。</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/dIqGgjZ2OoQ" title="YouTube video player" width="560"></iframe></p>
+<h2>W13</h2>
+<h3>無法使用PIP</h3>

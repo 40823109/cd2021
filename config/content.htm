@@ -651,7 +651,8 @@ for i in range(len(data)):
                    #差別在於這行是取組員的但因為有一組只有6人超出範圍所以一定會error
         except:
             continue</pre>
-<p></p><h3>task2</h3>
+<p></p>
+<h3>task2</h3>
 <p><span>使用 Python remote API 進行操控 stage1 與 stage2 所完成的 coppeliasim 場景</span></p>
 <p><span></span>YT :</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/rLoMKk9nZe8" title="YouTube video player" width="560"></iframe></p>
@@ -710,3 +711,15 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>W11 直播影片 :</p>
 <p>介紹使用 <span>Python remote API 控制 coppeliasim 場景，與SSH 設定。</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/dIqGgjZ2OoQ" title="YouTube video player" width="560"></iframe></p>
+<h2>W13</h2>
+<h3>無法使用PIP</h3>
+<p>輸入 pip 指令出現錯誤</p>
+<p><img alt="" height="92" src="/images/1621496428292.jpg" width="394"/></p>
+<p>原因 : pip 版本更新過後，無法使用。</p>
+<p>解決方法 :</p>
+<p>輸入 python -m ensurepip 變回更新前的版本</p>
+<p><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></p>
+<p>再次執行 pip ，即可成功執行，但會發現顯示版本過舊的問題。</p>
+<p><img alt="" height="65" src="/images/1621497131829.jpg" width="398"/></p>
+<p>此時使用 </p>
+<pre class="wp-block-preformatted">python -m pip install --upgrade pip <br/><br/>來更新 pip<br/><br/><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></pre>
