@@ -6,7 +6,7 @@
 <p><img alt="" height="357" src="/images/93-marquez__gp_4338_0.big_.jpg" width="537"/></p>
 <h1>Stage1</h1>
 <h2>W1</h2>
-<h3>SSH 設定</h3>
+<h3>SSH setup</h3>
 <p>(1) 在 home 將之前建立的key ， .ssh資料夾複製過來。</p>
 <p><img alt="" height="163" src="/images/1615215770245.jpg" width="550"/></p>
 <p>(2) 開啟 putty，將 github.com load下來。</p>
@@ -31,7 +31,7 @@
 <p>(5) 開起瀏覽器，輸入 <a>https://localhost:9443</a> ，即可編輯網站。</p>
 <p><img alt="" height="280" src="/images/1614265762452.jpg" width="564"/></p>
 <p></p>
-<h3>leo無法啟動</h3>
+<h3>leo can't use</h3>
 <p>(1) 輸入 leo 指令跳出無限迴圈</p>
 <p><img alt="" height="310" src="/images/1614264167228.jpg" width="590"/></p>
 <p>(2) 解決方法 :</p>
@@ -712,7 +712,7 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>介紹使用 <span>Python remote API 控制 coppeliasim 場景，與SSH 設定。</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/dIqGgjZ2OoQ" title="YouTube video player" width="560"></iframe></p>
 <h2>W13</h2>
-<h3>無法使用PIP</h3>
+<h3>can't use PIP</h3>
 <p>輸入 pip 指令出現錯誤</p>
 <p><img alt="" height="92" src="/images/1621496428292.jpg" width="394"/></p>
 <p>原因 : pip 版本更新過後，無法使用。</p>
@@ -738,4 +738,158 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>完成後如下圖 :</p>
 <p></p>
 <p><img alt="" height="280" src="/images/1622705279598.jpg" width="571"/> </p>
-<h3>2-joint robot arm using geometry</h3>
+<h3>using geometry</h3>
+<p>We saw this simple two-link robot in the previous lecture about forward kinematics.</p>
+<p>我們在上一堂關於正向運動學的講座中看到了這個簡單的二連桿機構。</p>
+<p> </p>
+<p>The tooltip pose of this robot is described simply by two numbers, the coordinates x and y with respect to the world coordinate frame.</p>
+<p>該機構的工具提示姿態由兩個數字簡單描述，相對於世界的坐標系的坐標的X和Y。</p>
+<p><span> </span></p>
+<p>So, the problem here is that given x and y, we want to determine the joined angles, q1 and q2.</p>
+<p>所以，這個問題在這裡是給定<span>x</span>跟<span>y</span>，我們想要求出這個節點的角度<span>q1</span>跟<span>q2</span>。</p>
+<p><span> </span></p>
+<p>The solution that we’re going to follow in this particular section is a geometric one.</p>
+<p>這節我們將遵循這個特別的幾何方法來解決。</p>
+<p><span> </span></p>
+<p>We’re going to start with a simple piece of construction.</p>
+<p>我們將從一個簡單的結構開始。</p>
+<p> </p>
+<p>We’re going to overlay the red triangle on top of our robot.</p>
+<p>我們將一個紅色的三角形覆蓋在機構上。</p>
+<p> </p>
+<p>We know that the end point coordinate is x, y, so the vertical height of the triangle is y, the horizontal width is x.</p>
+<p>我們知道結束的點坐標是x跟y，所以三角形的垂直距離是y，水平距離是x。</p>
+<p> </p>
+<p>And, using Pythagoras theorem, we can write r squared equals x squared plus y squared.</p>
+<p>然後，利用畢氏定理，我們可以寫出 r<sup>2 </sup>= x<sup>2</sup> +y<sup>2</sup>。</p>
+<p> </p>
+<p>So far, so easy.</p>
+<p>到這裡很容易。</p>
+<p> </p>
+<p>Now, we’re going to look at this triangle highlighted here in red and we want to determine the angle alpha.</p>
+<p>現在，我們開始看到這個以紅色突出顯示的三角形然後我們想確定α角。</p>
+<p> </p>
+<p>In order to do that, we need to use the cosine rule.</p>
+<p>為了做到這點，我們需要用到餘弦定理。</p>
+<p> </p>
+<p>And, if you’re a little rusty on the cosine rule, here is a bit of a refresher.</p>
+<p>如果你對餘弦定理有點生疏，這裡有一點複習。</p>
+<p> </p>
+<p>We have an arbitrary triangle.</p>
+<p>我們有任意一個三角形。</p>
+<p> </p>
+<p>We don’t have any right angles in it and we’re going to label the length of this edge as A and the angle opposite that edge, we’re going to label as little a.</p>
+<p>我們沒有任何直角，我們將這條邊的長度標記為 A，而與該邊相對的角度，我們將標記為小 a。</p>
+<p> </p>
+<p>And, we do the same for this edge and this angle, and this edge and this angle.</p>
+<p>並且，我們對這條邊和這個角，以及這條邊和這個角做同樣的事情。</p>
+<p> </p>
+<p>So, all together, the sides are labelled capitals A, B and C, and the angles are labelled little a, little b, and little c.</p>
+<p>因此，所有邊都標記為A、B、C，角標記為a、b、c。</p>
+<p> </p>
+<p>So, the cosine rule is simply this relationship here.</p>
+<p>餘弦定理就是這種關係。</p>
+<p> </p>
+<p>It’s a bit like Pythagoras’ theorem except for this extra term on the end with the cos a in it.</p>
+<p>它有點像畢達哥拉斯的定理，除了末尾有cos a以外。</p>
+<p> </p>
+<p>Now, let’s apply the cosine rule to the particular triangle we looked at a moment ago.</p>
+<p>現在，讓我們將餘弦定理用於我們剛才所看到的三角形。</p>
+<p> </p>
+<p>It’s pretty straightforward to write down this particular relationship.</p>
+<p>寫下這種特殊關係非常簡單。</p>
+<p> </p>
+<p>We can isolate the term cos alpha which gives us the angle alpha that we’re interested in.</p>
+<p>我們可以分離出cosα，它給出了我們需要的角度α。</p>
+<p> </p>
+<p>And, it’s defined in terms of the constant link lengths, A1 and A2 and the position of the end effector, x and y.</p>
+<p>而且，他是根據連桿長度A1跟A2以及末端執行器位置x、y來定義的。</p>
+<p> </p>
+<p>We can write this simple relationship between the angles alpha and q2.</p>
+<p>我們可以寫出簡單的關係在角度α跟q2之間。</p>
+<p> </p>
+<p>And, we know from the shape of the cosine function that cos of q2 must be equal to negative of cos alpha.</p>
+<p>而且，我們從餘弦函數的形狀知道，cosq2必須等於-cosα。</p>
+<p> </p>
+<p>This time, let’s just write an expression for the cosine of the joined angle q2.</p>
+<p>這一次，讓我們為節點角q2的餘弦函數寫一個表示式。</p>
+<p> </p>
+<p>Now, we’re going to draw yet another red triangle and we’re going apply some simple trigonometry here.</p>
+<p>現在，讓我們畫一個另外的三角形然後利用簡單的三角函數。</p>
+<p> </p>
+<p>If we know q2, then we know this length and this length of the red triangle.</p>
+<p>如果我們知道q2，甚至我們知道這個長度和這個紅色三角形的長度。</p>
+<p> </p>
+<p>We can write this relationship for the sine of the joined angle q2.</p>
+<p>我們可以寫出節點角q2的正弦關係。</p>
+<p> </p>
+<p>Now, we can consider this bigger triangle whose angle is beta and this side length of this triangle is given here in blue.</p>
+<p>現在，我們可以知道這個大的三角形，角度是β，然後由藍色表示此三角形的邊。</p>
+<p> </p>
+<p>And, the length of the other side of the triangle is this.</p>
+<p>且三角形另一邊長度是這個。</p>
+<p> </p>
+<p>So, now we can write an expression for the angle beta in terms of these parameters here</p>
+<p>所以，現在我們可以根據這些參數寫出角度β的表達式。</p>
+<p> </p>
+<p>Going back to the red triangle that we drew earlier, we can establish a relationship between q1 and the angle beta.</p>
+<p>回到我們之前畫的紅色三角形，我們可以建立q1和角度β之間的關係。</p>
+<p> </p>
+<p>Introduce yet another angle, this one gamma and we can write a relationship between the angle gamma and the tooltip coordinates x and y.</p>
+<p>引入另一個角度，γ，我們可以寫出角度γ和工具提示坐標x、y之間的關係。</p>
+<p> </p>
+<p>Now, we can write a simple relationship between the angles that we’ve constructed, gamma and beta and the joined angle we’re interested in which is q</p>
+<p>現在，可以寫出我們建構的角度γ和β與我們感興趣的節點角q之間的簡單關係。</p>
+<p> </p>
+<p>And, the total relationship looks something like this.</p>
+<p>而且，整個關係看起來像這樣。</p>
+<p> </p>
+<p>Quite a complex relationship, it gives us the angle of joined one, that’s q1 in terms of the end effector coordinates y and x, and a bunch of constants, a1 and a2, and it’s also a function of the second joint angle, q2.</p>
+<p>相當複雜的關係，它為我們提供了連接的角度，即末端執行器坐標q1的y和x，以及一系列常數a1和a2，它也是第二個節點角q2的函數。</p>
+<p> </p>
+<p>So, let’s summarize what it is that we have derived here.</p>
+<p>所以，讓我們總結一下我們在這裡得出的結論。</p>
+<p> </p>
+<p>We have an expression for the cosine of q2 and we have an expression for q1.</p>
+<p>我們有cosq2以及q1的表達式。</p>
+<p> </p>
+<p>Now, the cosine function is symmetrical about 0.</p>
+<p>現在，餘弦函數在0對稱。</p>
+<p> </p>
+<p>So, if we know the value of the cosine of q2, then there are two possible solutions a positive angle and a negative angle.</p>
+<p>所以，如果我們知道cosq2的值可能有兩種解，正角或負角。</p>
+<p> </p>
+<p>We’re going to explicitly choose the positive angle. Which means that I can write this expression here.</p>
+<p>我們將明確選擇正角。這意味著我可以在這裡寫這個表達式。</p>
+<p> </p>
+<p>And now, we have what we call the inverse kinematic solution for this two-link robot.</p>
+<p>現在，我們有了這個二連桿機構的逆向運動學解決方法。</p>
+<p> </p>
+<p>We have an expression for the two joined angles, q1 and q2 in terms of the end effector pose x and y, and a bunch of constants.</p>
+<p>我們有兩個節點角q1和q2的表達式，根據末端執行器姿勢x和y以及一系列常數。</p>
+<p> </p>
+<p>You notice that the two equations are not independent. The equation for q1, in fact, depends on the solution for q2.</p>
+<p>你注意到這兩個方程式不是獨立的事實上，q1 的方程取決於 q2 的解。</p>
+<p> </p>
+<p>In this case, q2 is negative and we’re going to write the solution for q2 with a negative sign in front of the inverse cosine.</p>
+<p>在這種情況下，q2是負數，我們將用負號在cos<sup>-1</sup>前寫出q2的解。</p>
+<p> </p>
+<p>Now, we need to solve for q1, so we’re going to introduce this particular red triangle, the angle beta that we solved previously, and the angle gamma which is defined in terms of y and x.</p>
+<p>現在，我們需要求解q1，因此我們將利用這個紅色三角形，我們之前求解的角度β以及根據y、x定義的角度γ。</p>
+<p> </p>
+<p>Now, we write a slightly different relationship between q1, gamma and beta, different to what we had before. There’s a change of sign involved.</p>
+<p>現在，我們在q1、γ和β之間寫出略有不同的關係，與我們之前的關係不同。 涉及到符號的變化。</p>
+<p> </p>
+<p>Then, we can substitute all that previous equation and come up with this expression for q1.</p>
+<p>然後，我們可以替換之前的所有等式，並得出q1的這個表達式。</p>
+<p> </p>
+<p>Again, there is a change of sign here. Previously, this was a negative sign.</p>
+<p>同樣，這裡的符號發生了變化。 以前，這是一個負號。</p>
+<p> </p>
+<p>And, here in summary form is the solution for the inverse kinematics of our two-link robot when it is in this particular configuration, where q2 is negative.</p>
+<p>並且，這裡是我們的二連桿機構在這種特定配置下的逆向運動學總結形式，其中q2為負。</p>
+<p> </p>
+<p>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</p>
+<p>讓我們比較兩個解決方案，q2為正的情況和q2為負的情況。</p>
+<h1>Questions and answers</h1>
+<h2>ValueError</h2>
