@@ -891,7 +891,9 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p> </p>
 <p>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</p>
 <p>讓我們比較兩個解決方案，q2為正的情況和q2為負的情況。</p>
-<h3>using algebra</h3>
+<p>結論 : 可以利用最終位置的 x、y 來計算機構的轉角 q1、q2</p>
+<p>q1 =  <span>tan<sup>-1 </sup>(y/x) - tan<sup>-1 </sup>(a2 sinq2/a1+a2 cosq2)</span></p>
+<p><span>q2 =  </span><span>cos<sup>-1</sup> (x<sup>2</sup>+y<sup>2</sup>-a1<sup>2</sup>-a2<sup>2</sup>/2a1a2)</span></p><h3>using algebra</h3>
 <p>Here we have the same two link robot as we just looked at but this time we're going to solve it using an analytical approach, that is we're going to rely much more on algebra, particular linear algebra rather than geometry.</p>
 <p>在這裡，我們有與剛才看到的相同的二連桿機構，但這次我們將使用分析方法來解決它，也就是說，我們將更多地依賴代數，特定的線性代數而不是幾何。</p>
 <p><span> </span></p>
@@ -935,12 +937,13 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>因此，我可以將其替換並進行一些簡化，最終得到Q1的這個稍微不那麼複雜的表達式。</p>
 <p><strong><span> </span></strong></p>
 <p>And it is the same expression that I got following the geometric approach in the previous section.</p>
-<p>這與我在上一節中遵循幾何方法得到的表達式相同。</p><h1>Questions and answers</h1>
+<p>這與我在上一節中遵循幾何方法得到的表達式相同。</p>
+<h1>Questions and answers</h1>
 <h2>ValueError</h2>
 <p>在push完後要進入近端(9443)繼續編輯，發現進不去顯示ValueError，以及網站內容404。</p>
 <p><img alt="" height="257" src="/images/1623236179193.jpg" width="482"/></p>
 <p>這問題是因為 : </p>
-<h3>函數接收變量個數少於函數返回值個數導致的，因為返回4個value</h3>
+<p>函數接收變量個數少於函數返回值個數導致的，因為返回4個value</p>
 <p><span>其實我並不知道怎麼解決，但我的想法是，既然是 push 後才出現的問題，會不會是 push 出了錯誤，因此我在想能不能把剛剛所 push 的 commit 刪除，回到前一個版本。結果如下 :</span></p>
 <p><span>1. 先使用指令:</span><span></span></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">git log --oneline</pre>
