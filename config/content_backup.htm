@@ -712,17 +712,18 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>介紹使用 <span>Python remote API 控制 coppeliasim 場景，與SSH 設定。</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/dIqGgjZ2OoQ" title="YouTube video player" width="560"></iframe></p>
 <h2>W13</h2>
-<h3>can't use PIP</h3>
-<p>輸入 pip 指令出現錯誤</p>
-<p><img alt="" height="92" src="/images/1621496428292.jpg" width="394"/></p>
-<p>原因 : pip 版本更新過後，無法使用。</p>
-<p>解決方法 :</p>
-<p>輸入 python -m ensurepip 變回更新前的版本</p>
-<p><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></p>
-<p>再次執行 pip ，即可成功執行，但會發現顯示版本過舊的問題。</p>
-<p><img alt="" height="65" src="/images/1621497131829.jpg" width="398"/></p>
-<h6>此時使用 </h6>
-<p><br/>python -m pip install --upgrade pip <br/><br/>來更新 pip<br/><br/><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></p>
+<p>使用 python API 控制 RoboDK</p>
+<ol>
+<li>下載 <a href="https://drive.google.com/file/d/13dzUp_j6U2PBHY1Gzl_1tzxSg7ULT8qi/view">RoboDK</a> 檔案與 <a href="https://drive.google.com/file/d/1XoB3F5cPK8R4Y8AIWL5pKR5TQjPW8TRv/view">Pick_and_place</a></li>
+<li>完成後打開 RoboDK 中的 a_start_robodk.bat</li>
+<li>載入 pick_and_place 中的 Example 02-1 - Pick and place with Python.rdk</li>
+<li>將 pick_and_place.py 拉進 SciTE 編譯器裡面</li>
+<li>更改程式中的 IP位置為自己電腦的IP "127.0.0.1"</li>
+<li>按下 Tools中的 GO 即可執行。</li>
+</ol>
+<p>操作影片 :</p>
+<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/o2Ts5bSzeuI" title="YouTube video player" width="560"></iframe></p>
 <h2>W15</h2>
 <p>使用 gogs 將github帳號被封的倉儲丟過去 。</p>
 <ol>
@@ -940,7 +941,12 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>And it is the same expression that I got following the geometric approach in the previous section.</p>
 <p>這與我在上一節中遵循幾何方法得到的表達式相同。</p>
 <h2>W16</h2>
-<h3>1. Onshape 零組件繪製</h3><h1>Questions and answers</h1>
+<h3>1. Onshape 零組件繪製</h3>
+<p>O<a href="https://cad.onshape.com/documents/e016e563b7d5561d08145076/w/fa5aa0e3e37a67793ddf69f4/e/804902eca6ae1936142a3186">nshape 連結</a></p>
+<p><a href="https://drive.google.com/drive/folders/10CZJ_bwu1aS7XkkRURMIDtzL50U-Extm?usp=sharing">STL檔連結</a></p>
+<p>繪製影片 : </p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/-a4-TZnsYGU" title="YouTube video player" width="560"></iframe></p>
+<h1>Questions and answers</h1>
 <h2>ValueError</h2>
 <p>在push完後要進入近端(9443)繼續編輯，發現進不去顯示ValueError，以及網站內容404。</p>
 <p><img alt="" height="257" src="/images/1623236179193.jpg" width="482"/></p>
@@ -960,3 +966,14 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>強制推送，這樣就完成了刪除前一個 commit 。</p>
 <p><img alt="" height="141" src="/images/1623240615337.jpg" width="510"/></p>
 <p>解決後近端也可以順利開啟，網站內容也不再404，可以正常編輯。</p>
+<h2>can't use</h2>
+<p>輸入 pip 指令出現錯誤</p>
+<p><img alt="" height="92" src="/images/1621496428292.jpg" width="394"/></p>
+<p>原因 : pip 版本更新過後，無法使用。</p>
+<p>解決方法 :</p>
+<p>輸入 python -m ensurepip 變回更新前的版本</p>
+<p><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></p>
+<p>再次執行 pip ，即可成功執行，但會發現顯示版本過舊的問題。</p>
+<p><img alt="" height="65" src="/images/1621497131829.jpg" width="398"/></p>
+<h6>此時使用 </h6>
+<p><br/>python -m pip install --upgrade pip <br/><br/>來更新 pip<br/><br/><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></p>
