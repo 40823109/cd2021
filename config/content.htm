@@ -1113,7 +1113,40 @@ function sysCall_sensing()
         sim.setObjectMatrix(l,-1,m)
     end
 end
-</pre><h1>Questions and answers</h1>
+</pre>
+<h3>4.逆向運動學函式</h3>
+<p><a href="https://drive.google.com/file/d/1xl7_xWhQLXrEJ54UEVbs3AP9YDWUZoVf/view?usp=sharing">W16 part_4</a></p>
+<p>執行影片 :</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/wavmPfEuLF0" title="YouTube video player" width="560"></iframe></p>
+<p>python  (x,y) 求法函式</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># for acos, atan2 and sin
+import math
+import sys
+ 
+# radian to degree
+deg = 180/math.pi
+# link 1 length
+a1 = 0.457
+# link 2 length
+a2 = 0.426
+# derivated based up https://www.youtube.com/watch?v=IKOGwoJ2HLk&amp;t=311s
+ 
+def ik(x, y):
+    # (x, y)  need to be located inside the circle with radius a1+a2
+    if (x**2 + y**2) &lt;= (a1+ a2)**2:
+        q2 = -math.acos((x**2+y**2-a1**2-a2**2)/(2*a1*a2))
+        q1 = math.atan2(y, x) + math.atan2((a2*math.sin(q2)), (a1+a2*math.cos(q2)))
+        # The decimal point of number is rounded to the 4th place
+        return [round(q1*deg, 4), round(q2*deg, 4)]
+    else:
+        print("Over range!")
+        # end the script execution
+        sys.exit()
+ 
+theta = ik(-0.3, -0.55)
+ 
+print(theta[0], theta[1])</pre>
+<p></p><h1>Questions and answers</h1>
 <h2>ValueError</h2>
 <p>在push完後要進入近端(9443)繼續編輯，發現進不去顯示ValueError，以及網站內容404。</p>
 <p><img alt="" height="257" src="/images/1623236179193.jpg" width="482"/></p>
