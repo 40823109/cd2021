@@ -133,52 +133,11 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">using geometry << <a href='using geometry.html'>Previous</a> <a href='W16.html'>Next</a> >> W16<br /><h1>using algebra</h1>
-<p>Here we have the same two link robot as we just looked at but this time we're going to solve it using an analytical approach, that is we're going to rely much more on algebra, particular linear algebra rather than geometry.</p>
-<p>在這裡，我們有與剛才看到的相同的二連桿機構，但這次我們將使用分析方法來解決它，也就是說，我們將更多地依賴代數，特定的線性代數而不是幾何。</p>
-<p><span> </span></p>
-<p>We have an expression E, which is the homogeneous transformation which represents the pose of the robots endefector and we looked at this in the last lecture, we can write the endefector pose as a sequence of elementary homogeneous transformations.</p>
-<p>我們有一個表達式<span> E</span>，它是表示機械手臂位置的齊次變換，我們在上一課中看過這個，我們可以將機械手臂位置寫為一系列基本齊次變換。</p>
-<p><span> </span></p>
-<p>A rotation by Q1, a translation along the X direction by A1, a rotation by Q2 and then a translation in the X direction by A2.</p>
-<p><span>Q1</span>旋轉，<span>A1</span>沿<span>x</span>方向平移，<span>Q2</span>旋轉，然後<span>A2</span>沿<span>x</span>方向平移。</p>
-<p><span> </span></p>
-<p>If I expand this out, multiply all the transformations together, I get the expression shown here ; a three by three homogeneous transformation matrix representing the pose of the robot's endefector.</p>
-<p>如果我將其展開，將所有變換相乘，就會得到此處所示的表達式；一個三乘三的齊次變換矩陣，表示機械手臂的最終位置。</p>
-<p><span> </span></p>
-<p>Now for this particular two link robot , we are only interested in the position of its endefector , it's X and Y co - ordinate and they are these two elements within the homogeneous transformation matrix , so I'm going to copy those out .</p>
-<p>現在對於這個特殊的二連桿機構，我們只對它機械手臂的位置感興趣，它是<span>x</span>和<span>y</span>坐標，它們是齊次變換矩陣中的這兩個元素，所以我將把它們複製出來。</p>
-<p><span> </span></p>
-<p>So here again is our expression for X and Y and what we're going to do is a fairly common trick , we're going to square and add these two equations and I get a relationship that looks like this .</p>
-<p>所以這裡又是我們對<span>x</span>和<span>y</span>的表達式，我們要做的是一個相當常見的技巧，我們要平方並添加這兩個方程，我得到一個看起來像這樣的關係式。</p>
-<p><span> </span></p>
-<p>Now I can solve for the joint angle Q2 in terms of the endefector pose X and Y and the robot's constants A1 and A2.</p>
-<p>現在我可以根據機械手臂位置<span>x</span>和<span>y</span>以及機器人的常數<span>A1</span>和<span>A2</span>來求解節點角度<span>Q2</span>。</p>
-<p><span> </span></p>
-<p>Now what I'm going to do is apply the sum of angles identity .</p>
-<p>現在我要做的是應用角度之和的特性。</p>
-<p><span> </span></p>
-<p>I'm going to expand these terms, sine of Q1 plus Q2 or cos of Q1 plus Q2 and to make life a little bit easier, I'm going to make some substations, so where ever I had cos Q2, I'm going to write C2 and where ever I had sine Q2, I'm going to write S2.</p>
-<p>我將展開這些項，<span>Q1</span>的正弦加<span>Q2</span>或<span>Q1</span>的<span>cos</span>加<span>Q2</span>，為了讓生活更輕鬆一點，我將建立一些部份，所以只要有<span>cos Q2</span>，我就會去取代<span>C2</span>並且在我有<span>sinQ2 </span>的地方，取代為<span>S2</span>。</p>
-<p><span> </span></p>
-<p>It's a fairly common shorthand when people are looking at robot kinematic equations. And here are the equations after making those substitutions.</p>
-<p>當人們解決機器人運動學方程時，這是一個相當常見的快速記法。這是進行這些替換後的方程式。</p>
-<p><span> </span></p>
-<p>Looking at these two equations, I can see that they fall into a very well known form and for that form there is a very well known solution.</p>
-<p>看看這兩個方程，我可以看到它們屬於一個眾所周知的形式，對於這種形式，有一個眾所周知的解決方案。</p>
-<p><span> </span></p>
-<p>So I'm going to consider just one of the equations, the equation for Y and using our well known identity and it's solution, I can determine the values for the variables little a, little b and little c and once l've determined those, then I can just write down the solution for Q1, which x is the equivalent of theta in this particular case.</p>
-<p>所以我將只考慮其中一個方程式，<span>Y</span>，使用我們眾所周知的恆等式和它的解，我可以確定變量<span>a</span>、<span>b</span>、<span>c </span>的值，一旦我確定了這些，然後我可以寫下<span>Q1</span>的解決方案，在這種特殊情況下，<span>x</span>相當於θ。</p>
-<p><span> </span></p>
-<p>Here again is our expression for Q1, copied over from the previous slide and we may remember from earlier in our workings that we determined this particular relationship; X squared plus Y squared is equal to this particular complex expression.</p>
-<p>這裡再次是我們對<span>Q1</span>的表達式，從上一張幻燈片複製過來，我們可能還記得在我們工作的早期，我們確定了這種特殊關係；<span>X<sup>2</sup></span>加<span>Y<sup>2</sup></span>等於這個特定的複雜表達式。</p>
-<p><span> </span></p>
-<p>So I can substitute that in and do some simplification and I end up with this slightly less complex expression for Q1.</p>
-<p>因此，我可以將其替換並進行一些簡化，最終得到Q1的這個稍微不那麼複雜的表達式。</p>
-<p><strong><span> </span></strong></p>
-<p>And it is the same expression that I got following the geometric approach in the previous section.</p>
-<p>這與我在上一節中遵循幾何方法得到的表達式相同。</p>
-<br />using geometry << <a href='using geometry.html'>Previous</a> <a href='W16.html'>Next</a> >> W16</div>
+    <div id="tipue_search_content">1. Onshape 零組件繪製 << <a href='1. Onshape 零組件繪製.html'>Previous</a> <a href='3.手臂末端加入吸盤.html'>Next</a> >> 3.手臂末端加入吸盤<br /><h1>2.建立 CoppeliaSim 4.1.0 MTB robot 場景</h1>
+<p>檔案連結 : <a href="https://drive.google.com/file/d/1faJ7K7_mfZPxXmUAdrwPTItdYs2ISn-k/view?usp=sharing">W16_exam</a></p>
+<p>操作影片 :</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/u8J4rBcZgOw" title="YouTube video player" width="560"></iframe></p>
+<br />1. Onshape 零組件繪製 << <a href='1. Onshape 零組件繪製.html'>Previous</a> <a href='3.手臂末端加入吸盤.html'>Next</a> >> 3.手臂末端加入吸盤</div>
         
     <!-- footer -->
       <div class="container">
