@@ -941,12 +941,14 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>And it is the same expression that I got following the geometric approach in the previous section.</p>
 <p>這與我在上一節中遵循幾何方法得到的表達式相同。</p>
 <h2>W16</h2>
-<h3>1. Onshape 零組件繪製</h3>
+<p><span size="5" style="font-size: x-large;"><span size="5" style="font-size: x-large;">1. Onshape 零組件繪製</span></span></p>
 <p>O<a href="https://cad.onshape.com/documents/e016e563b7d5561d08145076/w/fa5aa0e3e37a67793ddf69f4/e/804902eca6ae1936142a3186">nshape 連結</a></p>
 <p><a href="https://drive.google.com/drive/folders/10CZJ_bwu1aS7XkkRURMIDtzL50U-Extm?usp=sharing">STL檔連結</a></p>
 <p>繪製影片 : </p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/-a4-TZnsYGU" title="YouTube video player" width="560"></iframe></p>
-<h1>Questions and answers</h1>
+<p><span size="5" style="font-size: x-large;">2.建立 CoppeliaSim 4.1.0 MTB robot 場景</span></p>
+<p>檔案連結 : <a href="https://drive.google.com/file/d/1faJ7K7_mfZPxXmUAdrwPTItdYs2ISn-k/view?usp=sharing">W16_exam</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/u8J4rBcZgOw" title="YouTube video player" width="560"></iframe></p><h1>Questions and answers</h1>
 <h2>ValueError</h2>
 <p>在push完後要進入近端(9443)繼續編輯，發現進不去顯示ValueError，以及網站內容404。</p>
 <p><img alt="" height="257" src="/images/1623236179193.jpg" width="482"/></p>
@@ -966,14 +968,17 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,right_m_handle,0, vrep.simx_o
 <p>強制推送，這樣就完成了刪除前一個 commit 。</p>
 <p><img alt="" height="141" src="/images/1623240615337.jpg" width="510"/></p>
 <p>解決後近端也可以順利開啟，網站內容也不再404，可以正常編輯。</p>
-<h2>can't use</h2>
+<h2>pip無法使用</h2>
 <p>輸入 pip 指令出現錯誤</p>
 <p><img alt="" height="92" src="/images/1621496428292.jpg" width="394"/></p>
 <p>原因 : pip 版本更新過後，無法使用。</p>
 <p>解決方法 :</p>
-<p>輸入 python -m ensurepip 變回更新前的版本</p>
+<p>輸入 </p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">python -m ensurepip</pre>
+<p>變回更新前的版本</p>
 <p><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></p>
 <p>再次執行 pip ，即可成功執行，但會發現顯示版本過舊的問題。</p>
 <p><img alt="" height="65" src="/images/1621497131829.jpg" width="398"/></p>
 <h6>此時使用 </h6>
-<p><br/>python -m pip install --upgrade pip <br/><br/>來更新 pip<br/><br/><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">python -m pip install --upgrade pip</pre>
+<h6>來更新 pip<br/><br/><img alt="" height="49" src="/images/1621497124724.jpg" width="397"/></h6>
